@@ -16,9 +16,8 @@ formHelpers = {
 		// let our list element has a varible:current user
 		// so we can filt list basd on user
 		var currentUserId = Meteor.userId();
-		
-		// send back a premade object
-		return {
+
+		var task = {
 			createdBy: currentUserId,
 		    url: name,
 		    title: name,
@@ -26,5 +25,7 @@ formHelpers = {
 		    date: date,
 		    done: 'incomplete'
 		};
+		
+		return task;
 	}
 }; 

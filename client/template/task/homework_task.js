@@ -1,6 +1,6 @@
 Template.task.events({
     'click #delete-list':function(evt, tmpl){
-        List.remove(this._id);
+        Meteor.call('deleteProject', this._id);
         Router.go('list');
     },
 
@@ -14,28 +14,17 @@ Template.task.events({
                 done: 'complete'   
             }
             var currentListID = this._id;
-            List.update(currentListID, {$set: updateDoneStatus}, function(error) {
-                if(error) {
-                    console.log('Error');  
-                }
-                else {
-                    Router.go('list');   
-                }
-            });
+
+            Meteor.call('updateDone', currentListID, updateDoneStatus);
+            Router.go('list');
         }
         else {
             var updateDoneStatus = {
                 done: 'incomplete'   
             }
             var currentListID = this._id;
-            List.update(currentListID, {$set: updateDoneStatus}, function(error) {
-                if(error) {
-                    console.log('Error');  
-                }
-                else {
-                    Router.go('list');   
-                }
-            });
+            Meteor.call('updateDone', currentListID, updateDoneStatus);
+            Router.go('list');
         }
     }
 });
