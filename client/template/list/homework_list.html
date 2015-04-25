@@ -1,0 +1,80 @@
+<!-- 
+DESCRIPTION: This template displays all the lists added into the database.
+-->
+
+<!-- DECLARE TEMPLATE NAME AS LIST -->
+<template name="list">
+    <!-- BUTTON FOR CREATING NEW TASK -->
+    <button type="button" class="btn btn-default" id="add-new-list" data-toggle="modal" data-target="#basicModal">+ Add New</button>
+    <!-- BUTTON END -->
+    <div class="clear"></div>
+    <!-- MODAL FOR ADDING NEW TASK -->
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title" id="myModalLabel">Add New Task</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-8  margin-bottom">
+                                <label class="col-md-8 control-label" for="name">Name</label>
+                                <!-- LIST NAME -->
+                                <input id="name" name="name" type="text" placeholder="Task Name" class="form-control input-md" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="col-md-4 control-label" for="name">Date</label>
+                                <!-- LIST DATE -->
+                                <input type="text" class="form-control input-md" id="datepicker" placeholder="MM/DD/YYYY" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="col-md-8 control-label" for="description">Description</label>
+                                <!-- LIST DESCRIPTION -->
+                                <textarea id="description" type="text" placeholder="Description . . ." class="form-control input-md" required></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary create-list" data-dismiss="modal">Create</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL END -->
+    <!-- LIST OF LISTS -->
+    {{#if currentUser}}
+    <ul>
+        <div class="alert alert-danger hidden" role="alert">
+            <p>* Please fill in all the required fields!</p>
+        </div>
+        <div class="alert alert-success hidden" role="alert">
+            <p>* New task added!</p>
+        </div>
+        {{#each list}}
+            {{>listItem}}
+        {{/each}}
+        <span class="clear"></span>
+    </ul>
+    {{/if}}
+</template>
+
+<!-- DECLARE TEMPLATE NAME AS LISTITEM -->
+<template name="listItem">
+    <!-- INDIVIDUAL LIST ITEM -->
+    <a href="{{pathFor 'task'}}">
+        <li class="well clearfix">
+                <div class="left {{done}}">{{title}}</div>
+                <div class="right {{done}}">{{date}}</div>
+                <div class="clear {{done}}"></div>
+        </li>
+    </a>
+</template>

@@ -1,0 +1,49 @@
+/* =============================== */
+/* Defaults                        */
+/* =============================== */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;  
+    color: #222 !important;
+}
+
+a{
+    cursor: pointer;   
+}
+
+ul{
+    padding-left: 0px;   
+}
+
+ul li{
+    list-style-type: none;
+}
+
+/* =============================== */
+/* Bootstrap                       */
+/* =============================== */
+
+.well{
+    border-radius: none;
+}
+
+/* =============================== */
+/* Misc                            */
+/* =============================== */
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;   
+}
+
+.clear{
+    clear: both;
+}
+
+.clearfix {
+	overflow: auto;
+	zoom: 1;
+}
