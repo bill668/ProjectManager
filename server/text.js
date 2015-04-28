@@ -1,9 +1,28 @@
 // Server now can sense who's loging in,
 // and sent the list create by that user to clint
 
+/*var createAdminAccount = function(){
+	var admin = {
+		userName: admin@admin.com,
+		password: admin@admin.com
+	};
+	// accountList.insert(admin);
+
+};*/
+
+
 Meteor.publish('homeWorkList', function(){
 	var currentUserId = this.userId;
-	return List.find({ createdBy: currentUserId});
+	/*// If current User is Admin, return all list to client
+	if(currentUserId == findId(admin)){
+		return List.find();
+	}
+	else{
+		// if current User is not Admin, then only return project which current user created 
+		return List.find({ toUser: currentUserId});
+	}*/
+
+	return List.find({ toUser: currentUserId});
 })
 
 
@@ -12,6 +31,7 @@ Meteor.methods({
 	'inserUserData': function(task){
 		List.insert({
 			createdBy: task.createdBy,
+			toUser: task.toUser,
 		    url: task.url,
 		    title: task.title,
 		    description: task.description,

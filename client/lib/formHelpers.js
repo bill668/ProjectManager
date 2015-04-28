@@ -12,6 +12,8 @@ formHelpers = {
 		var name = $('#name').val();                // name input box value
 		var description = $('#description').val();    // description input box value
 		var date = $('#datepicker').val();          // date input box value
+
+		//var toUserInput = $('#to-User').val();	// let client selent the project is create for whom
 		
 		// let our list element has a varible:current user
 		// so we can filt list basd on user
@@ -19,6 +21,8 @@ formHelpers = {
 
 		var task = {
 			createdBy: currentUserId,
+			//toUser: toUserInput, but right now let's just use currentUserId as default
+			toUser: currentUserId,
 		    url: name,
 		    title: name,
 		    description: description,
