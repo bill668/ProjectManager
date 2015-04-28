@@ -20,14 +20,12 @@ formHelpers = {
 		var currentUserId = Meteor.userId();
 
 		var task = {
-			createdBy: currentUserId,
 			//toUser: toUserInput, but right now let's just use currentUserId as default
 			toUser: currentUserId,
 		    url: name,
 		    title: name,
 		    description: description,
 		    date: date,
-		    done: 'incomplete'
 		};
 		
 		return task;

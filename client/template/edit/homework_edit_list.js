@@ -7,8 +7,13 @@ Template.listEdit.events({
         var currentListID = this._id;
         var task = formHelpers.getTaskData();
 
-        Meteor.call('updateProject', currentListID, task);
-        Router.go('task', {_id: currentListID}); 
+        Meteor.call('updateProject', currentListID, task, function(error, result) {
+            if (error) {
+                // display the error some how to the user
+            } else {
+                Router.go('task', {_id: currentListID});         
+            }
+        });
     }
 
 
@@ -20,3 +25,4 @@ Template.listEdit.helpers({
         return List.find({postId:this._id});
     },
 });
+

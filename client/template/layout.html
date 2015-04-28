@@ -21,9 +21,11 @@ DESCRIPTION: The initial template for HomeworkHelper. All templates are loaded t
     <!-- MAIN -->
     <div id="main">
         <div class="container">
+        {{#if currentUser}}
             <!-- ROUTER -->
             {{>yield}}
             <!-- ROUTER END -->
+        {{/if}}
         </div>
     </div>
     <!-- MAIN END -->

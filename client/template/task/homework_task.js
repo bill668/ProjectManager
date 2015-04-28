@@ -15,16 +15,27 @@ Template.task.events({
             }
             var currentListID = this._id;
 
-            Meteor.call('updateDone', currentListID, updateDoneStatus);
-            Router.go('list');
+            Meteor.call('updateDone', currentListID, updateDoneStatus, function(error, result) {
+                if (error) {
+                    // display the error some how to the user
+                } else {
+                    Router.go('list');        
+                }
+            });
         }
         else {
             var updateDoneStatus = {
                 done: 'incomplete'   
             }
             var currentListID = this._id;
-            Meteor.call('updateDone', currentListID, updateDoneStatus);
-            Router.go('list');
+            
+            Meteor.call('updateDone', currentListID, updateDoneStatus, function(error, result) {
+                if (error) {
+                    // display the error some how to the user
+                } else {
+                    Router.go('list');        
+                }
+            });            
         }
     }
 });

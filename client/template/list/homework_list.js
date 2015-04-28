@@ -4,6 +4,8 @@ Template.list.events({
         var successBox = $('.alert-success');
         
         var task = formHelpers.getTaskData();
+        task.done = 'incomplete';
+        task.createdBy = Meteor.userId();
 
         // make sure user unless enter project name
         if (task.title === '' || task.description === '' || task.date === ''){
