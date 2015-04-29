@@ -5,6 +5,8 @@
 
 // Now clint can get the information form server
 Meteor.subscribe('homeWorkList');
+Meteor.subscribe('users');
+
 
 
 formHelpers = {
@@ -13,15 +15,15 @@ formHelpers = {
 		var description = $('#description').val();    // description input box value
 		var date = $('#datepicker').val();          // date input box value
 
-		//var toUserInput = $('#to-User').val();	// let client selent the project is create for whom
+		var toUserInput = $('#to-User').val();	// let client selent the project is create for whom
 		
 		// let our list element has a varible:current user
 		// so we can filt list basd on user
 		var currentUserId = Meteor.userId();
 
 		var task = {
-			//toUser: toUserInput, but right now let's just use currentUserId as default
-			toUser: currentUserId,
+			toUser: toUserInput, 
+			//toUser: currentUserId,
 		    url: name,
 		    title: name,
 		    description: description,

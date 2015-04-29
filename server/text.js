@@ -29,7 +29,11 @@ Meteor.publish('homeWorkList', function(){
 	}
 
 	return List.find({ toUser: currentUserId});
-})
+});
+
+Meteor.publish('users', function(){
+	return Meteor.users.find({}, {fields: {'emails.address': 1}});
+});
 
 
 Meteor.methods({
@@ -61,7 +65,6 @@ Meteor.methods({
                     throw error; 
                 }
             });
-
 	},
 
 	'deleteProject': function(selectedId){
@@ -69,3 +72,4 @@ Meteor.methods({
 	}
 
 });
+

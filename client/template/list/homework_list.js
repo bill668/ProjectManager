@@ -34,5 +34,8 @@ Template.list.helpers({
     list: function() {
         var currentUserId = Meteor.userId();
         return List.find();
+    },
+    users: function() {
+        return Meteor.users.find().fetch();
     }
 });
