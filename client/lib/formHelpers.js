@@ -17,13 +17,8 @@ formHelpers = {
 
 		var toUserInput = $('#to-User').val();	// let client selent the project is create for whom
 		
-		// let our list element has a varible:current user
-		// so we can filt list basd on user
-		var currentUserId = Meteor.userId();
-
 		var task = {
 			toUser: toUserInput, 
-			//toUser: currentUserId,
 		    url: name,
 		    title: name,
 		    description: description,
@@ -31,5 +26,10 @@ formHelpers = {
 		};
 		
 		return task;
+	},
+
+	// let Meteor will find a object relate to userId, then return the email to us
+	getCurrentEmail: function(userId){
+		return Meteor.users.find(userId).fetch()[0].emails[0].address;
 	}
 }; 

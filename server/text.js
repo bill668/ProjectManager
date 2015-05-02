@@ -46,7 +46,8 @@ Meteor.methods({
 		    title: task.title,
 		    description: task.description,
 		    date: task.date,
-		    done: task.done
+		    done: task.done,
+		    createrEmail: task.createrEmail
 		})
 	},
 

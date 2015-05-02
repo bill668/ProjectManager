@@ -6,6 +6,8 @@ Template.list.events({
         var task = formHelpers.getTaskData();
         task.done = 'incomplete';
         task.createdBy = Meteor.userId();
+        var currentUserEmail = formHelpers.getCurrentEmail(Meteor.userId());
+        task.createrEmail = currentUserEmail;
 
         // make sure user unless enter project name
         if (task.title === '' || task.description === '' || task.date === ''){

@@ -54,3 +54,4 @@ Template.task.rendered = function() {
          $('#done-list').text('Not Done');   
     }
 }
+
