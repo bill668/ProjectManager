@@ -6,6 +6,8 @@ var adminEmail = 'admin@admin.com',
 	adminUser = Meteor.users.findOne({'emails.address': adminEmail}),
 	adminId;
 
+var IcreatedFilter = false;
+
 
 if (! adminUser ) {
 	adminId = Accounts.createUser({
@@ -26,9 +28,8 @@ Meteor.publish('homeWorkList', function(){
 	else {
 		// if current User is not Admin, then only return project which current user created 
 		return List.find({ toUser: currentUserId});
-	}
+	}	
 
-	return List.find({ toUser: currentUserId});
 });
 
 Meteor.publish('users', function(){
@@ -61,6 +62,7 @@ Meteor.methods({
 	},
 
 	'updateDone': function(currentListID, updateDoneStatus){
+		IcreatedFilter = false;
             List.update(currentListID, {$set: updateDoneStatus}, function(error) {
                 if(error) {
                     throw error; 
@@ -69,6 +71,7 @@ Meteor.methods({
 	},
 
 	'deleteProject': function(selectedId){
+		IcreatedFilter = true;
 		List.remove(selectedId);		
 	}
 

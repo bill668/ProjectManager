@@ -6,7 +6,11 @@ DESCRIPTION: This template displays all the lists added into the database.
 <template name="list">
     <!-- BUTTON FOR CREATING NEW TASK -->
     <button type="button" class="btn btn-default" id="add-new-list" data-toggle="modal" data-target="#basicModal">+ Add New</button>
+    <!-- BUTTON FOR FILTER PROJECT CREATE BY USER-->
+    <button type="button" class="btn btn-default" id="createdByUser">I created</button>
+    <button type="button" class="btn btn-default" id="backAllProject">All Project</button>
     <!-- BUTTON END -->
+
     <div class="clear"></div>
     <!-- MODAL FOR ADDING NEW TASK -->
     <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="false">
@@ -66,10 +70,29 @@ DESCRIPTION: This template displays all the lists added into the database.
         </div>
         {{#each list}}
             {{>listItem}}
+        {{/each}}        
+
+        <!--
+        {{#each IcreatedList}}
+            {{>listItem}}
         {{/each}}
+        -->
+
+      <!--  {{if Icreated}} <!-- If Icreated is true, display project created by current user
+            {{#each IcreatedList}}
+            {{>listItem}}
+            {{/each}}
+
+            {{else}}
+
+            {{#each list}}
+                {{>listItem}}
+            {{/each}}        
+
+        {{/if}}
         <span class="clear"></span>
     </ul>
-    {{/if}}
+    {{/if}}  -->
 </template>
 
 <!-- DECLARE TEMPLATE NAME AS LISTITEM -->
@@ -80,7 +103,6 @@ DESCRIPTION: This template displays all the lists added into the database.
                 <div class="left {{done}}">{{title}}</div>
                 <div class="right {{done}}">{{date}}</div>
                 <div class="clear {{done}}"></div>
-                <div value="{{_id}}">{{emails.[0].address}}</div>
         </li>
     </a>
 </template>

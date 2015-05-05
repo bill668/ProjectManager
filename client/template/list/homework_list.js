@@ -5,6 +5,8 @@ Template.list.events({
         
         var task = formHelpers.getTaskData();
         task.done = 'incomplete';
+
+        // store creater's information
         task.createdBy = Meteor.userId();
         var currentUserEmail = formHelpers.getCurrentEmail(Meteor.userId());
         task.createrEmail = currentUserEmail;
@@ -29,15 +31,27 @@ Template.list.events({
             $('#datepicker').val('');
             $('#description').val('');
         }
-    }
+    },
+
+    /*'click #createdByUser':function(){
+        Template.list.Icreated = true;
+    },
+    'click #backAllProject': function(){
+        Template.list.Icreated = false;
+    }*/
 });
 
 Template.list.helpers({
+
     list: function() {
-        var currentUserId = Meteor.userId();
         return List.find();
     },
     users: function() {
         return Meteor.users.find().fetch();
+    },
+    IcreatedList: function(){
+        var currentUserId = Meteor.userId();
+        return List.find({createdBy: currentUserId})
     }
 });
+
