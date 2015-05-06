@@ -1,0 +1,26 @@
+/* =============================== */
+/* Nav                             */
+/* =============================== */
+
+.navbar{
+    border: 0px;
+    border-radius: 0px;
+    border-bottom: 2px solid #222;
+}
+
+.navbar-default{
+    background-color: #4cc8ee;
+}
+
+.navbar-header{
+    margin: 0px auto;   
+    margin: 0px auto !important;
+    float: none !important;
+    width: 222px;
+    padding: 15px 0px;
+}
+
+.navbar-header .navbar-brand{
+    color: #222 !important;
+    text-transform: uppercase;
+}

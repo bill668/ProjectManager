@@ -1,0 +1,30 @@
+<!-- DECLARE TEMPLATE NAME AS EDIT -->
+<template name="listEdit">
+    <!-- FORM -->
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-8  margin-bottom">
+                <label class="col-md-8 control-label" for="name">Name</label>
+                <!-- LIST NAME -->
+                <input id="name" name="name" type="text" placeholder="Task Name" class="form-control input-md" value="{{title}}" required>
+            </div>
+            <div class="col-md-4">
+                <label class="col-md-4 control-label" for="name">Date</label>
+                <!-- LIST DATE -->
+                <input type="text" class="form-control input-md" id="datepicker" placeholder="MM/DD/YYYY" value="{{date}}" required>
+                </div>
+        </div>
+        <div class="form-group">
+        <div class="col-md-12">
+                <label class="col-md-8 control-label" for="description">Description</label>
+                <!-- LIST DESCRIPTION -->
+                <textarea id="description" type="text" placeholder="Description . . ." class="form-control input-md" value="{{description}}" required></textarea>
+            </div>
+        </div>
+    </form>           
+    <!-- FORM END -->
+    <button type="button" class="btn btn-primary save-list">Save</button>
+     {{#linkTo route='task' class='btn btn-default'}}
+        Cancel
+     {{/linkTo}}
+</template>

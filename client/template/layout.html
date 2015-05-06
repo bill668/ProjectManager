@@ -1,0 +1,32 @@
+<!-- 
+DESCRIPTION: The initial template for HomeworkHelper. All templates are loaded through here via 
+             the {{>yield}}.
+-->
+
+<template name="layout">
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand mainButton" id="home-link">
+                  <!-- Ming 4/20/15: remove layout.js, use iron-routers instead  a button for click events -->
+                    {{#linkTo route='list' class='navbar-brand'}}
+                        Homework Helper
+                    {{/linkTo}}
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- NAVIGATION END -->
+    <!-- MAIN -->
+    <div id="main">
+        <div class="container">
+        {{#if currentUser}}
+            <!-- ROUTER -->
+            {{>yield}}
+            <!-- ROUTER END -->
+        {{/if}}
+        </div>
+    </div>
+    <!-- MAIN END -->
+</template>
