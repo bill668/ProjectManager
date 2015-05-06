@@ -7,7 +7,7 @@ DESCRIPTION: This template displays all the lists added into the database.
     <!-- BUTTON FOR CREATING NEW TASK -->
     <button type="button" class="btn btn-default" id="add-new-list" data-toggle="modal" data-target="#basicModal">+ Add New</button>
     <!-- BUTTON FOR FILTER PROJECT CREATE BY USER-->
-    <button type="button" class="btn btn-default" id="createdByUser">I created</button>
+    <a href="{{pathFor 'list'}}"><button type="button" class="btn btn-default" id="createdByUser" >I created</button></a>
     <button type="button" class="btn btn-default" id="backAllProject">All Project</button>
     <!-- BUTTON END -->
 
@@ -71,36 +71,18 @@ DESCRIPTION: This template displays all the lists added into the database.
         {{#each list}}
             {{>listItem}}
         {{/each}}        
-
-        <!--
-        {{#each IcreatedList}}
-            {{>listItem}}
-        {{/each}}
-        -->
-
-      <!--  {{if Icreated}} <!-- If Icreated is true, display project created by current user
-            {{#each IcreatedList}}
-            {{>listItem}}
-            {{/each}}
-
-            {{else}}
-
-            {{#each list}}
-                {{>listItem}}
-            {{/each}}        
-
-        {{/if}}
         <span class="clear"></span>
     </ul>
-    {{/if}}  -->
+    {{/if}} 
 </template>
 
 <!-- DECLARE TEMPLATE NAME AS LISTITEM -->
 <template name="listItem">
     <!-- INDIVIDUAL LIST ITEM -->
-    <a href="{{pathFor 'task'}}">
+    <a href="{{pathFor 'task'}}" data-created="{{createdBy}}">
         <li class="well clearfix">
                 <div class="left {{done}}">{{title}}</div>
+                <div class="center {{done}}">{{briefDescription}}</div>
                 <div class="right {{done}}">{{date}}</div>
                 <div class="clear {{done}}"></div>
         </li>

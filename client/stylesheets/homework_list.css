@@ -19,6 +19,9 @@
 ul a{
     color: #222;   
 }
+.center {
+    text-align: center;
+}
 
 ul a:hover{
     color: #222;

@@ -21,14 +21,23 @@ if (! adminUser ) {
 
 Meteor.publish('homeWorkList', function(){
 	var currentUserId = this.userId;
+
+
 	// If current User is Admin, return all list to client
 	if(currentUserId === adminId){
 		return List.find();
 	}
+	else if(IcreatedFilter === true){
+		return List.find({createdBy: currentUserId});
+
+	}
 	else {
 		// if current User is not Admin, then only return project which current user created 
 		return List.find({ toUser: currentUserId});
-	}	
+	}
+
+
+
 
 });
 
@@ -73,6 +82,14 @@ Meteor.methods({
 	'deleteProject': function(selectedId){
 		IcreatedFilter = true;
 		List.remove(selectedId);		
+	},
+
+	'changeReturnList':function(Icreated){
+		if(Icreated){
+			IcreatedFilter = true;
+		}else if (Icreated === false){
+			IcreatedFilter = false;
+		}
 	}
 
 });

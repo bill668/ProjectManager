@@ -37,3 +37,9 @@
 .complete{
     text-decoration: line-through;   
 }
+.createdByClass {
+    font-family: verdana;
+    color: #707070;
+    font-size: 12pt;
+    font-weight: bold;
+}

@@ -33,12 +33,17 @@ Template.list.events({
         }
     },
 
-    /*'click #createdByUser':function(){
-        Template.list.Icreated = true;
+    'click #createdByUser':function(){
+        var Icreated = true;
+        console.log('lalalalal');
+        Meteor.call('changeReturnList', Icreated);
     },
-    'click #backAllProject': function(){
-        Template.list.Icreated = false;
-    }*/
+
+    'click #backAllProject':function(){
+        var Icreated = false;
+        Meteor.call('changeReturnList', Icreated);
+    }
+
 });
 
 Template.list.helpers({
@@ -55,3 +60,12 @@ Template.list.helpers({
     }
 });
 
+Template.listItem.helpers({
+    briefDescription: function() {
+        if (this.description.length > 30) {
+            return this.description.substring(0, 30) + '...';
+        } else {
+            return this.description;
+        }
+    }
+});
