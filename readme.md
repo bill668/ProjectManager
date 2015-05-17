@@ -11,7 +11,9 @@ Application Design - Class Project
 # View more detail at:
 http://mingyuanyu.virb.com/project-manager
 
-# Polished, Cleaned, and Updated Project -5/16/2015- Change project name to Project Manager  - 3/31/2015
+# Polished, Cleaned, and Updated Project 
+-5/16/2015- Change project name to Project Manager  
+- 3/31/2015
 
 - Added in some comments
 - Added in styling
