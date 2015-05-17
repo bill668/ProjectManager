@@ -7,7 +7,11 @@ Application Design - Class Project
 - Ming / ming.yu@loop.colum.edu / 352-678-7861
 - Clayton / clayton.haddock@loop.colum.edu / 269-487-8587
 
-# Polished, Cleaned, and Updated Project - 3/31/2015
+
+# View more detail at:
+http://mingyuanyu.virb.com/project-manager
+
+# Polished, Cleaned, and Updated Project -5/16/2015- Change project name to Project Manager  - 3/31/2015
 
 - Added in some comments
 - Added in styling
