@@ -5,10 +5,10 @@ DESCRIPTION: This template displays all the lists added into the database.
 <!-- DECLARE TEMPLATE NAME AS LIST -->
 <template name="list">
     <!-- BUTTON FOR CREATING NEW TASK -->
-    <button type="button" class="btn btn-default" id="add-new-list" data-toggle="modal" data-target="#basicModal">+ Add New</button>
+    <button type="button" class="btn btn-default" id="add-new-list" data-toggle="modal" data-target="#basicModal">Add New</button>
     <!-- BUTTON FOR FILTER PROJECT CREATE BY USER-->
-    <a href="{{pathFor 'list'}}"><button type="button" class="btn btn-default" id="createdByUser" >I created</button></a>
-    <button type="button" class="btn btn-default" id="backAllProject">All Project</button>
+    <button type="button" class="btn btn-default" id="createdByUser" >My Projects</button>
+    <button type="button" class="btn btn-default" id="backAllProject">All Projects</button>
     <!-- BUTTON END -->
 
     <div class="clear"></div>
@@ -19,7 +19,7 @@ DESCRIPTION: This template displays all the lists added into the database.
 
                 <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title" id="myModalLabel">Add New Task</h4>
+                <h4 class="modal-title" id="MainTitle">Add New Task</h4>
                 </div>
 
                 <div class="modal-body">
@@ -33,7 +33,7 @@ DESCRIPTION: This template displays all the lists added into the database.
                             <div class="col-md-4">
                                 <label class="col-md-4 control-label" for="name">Date</label>
                                 <!-- LIST DATE -->
-                                <input type="text" class="form-control input-md" id="datepicker" placeholder="MM/DD/YYYY" required>
+                                <input type="date" class="form-control input-md" id="datepicker" placeholder="MM/DD/YYYY" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -61,7 +61,7 @@ DESCRIPTION: This template displays all the lists added into the database.
     <!-- MODAL END -->
     <!-- LIST OF LISTS -->
     {{#if currentUser}}
-    <ul>
+    <ul id="listOfUsers">
         <div class="alert alert-danger hidden" role="alert">
             <p>* Please fill in all the required fields!</p>
         </div>

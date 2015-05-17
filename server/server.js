@@ -6,8 +6,6 @@ var adminEmail = 'admin@admin.com',
 	adminUser = Meteor.users.findOne({'emails.address': adminEmail}),
 	adminId;
 
-var IcreatedFilter = false;
-
 
 if (! adminUser ) {
 	adminId = Accounts.createUser({
@@ -27,17 +25,12 @@ Meteor.publish('homeWorkList', function(){
 	if(currentUserId === adminId){
 		return List.find();
 	}
-	else if(IcreatedFilter === true){
-		return List.find({createdBy: currentUserId});
 
-	}
-	else {
-		// if current User is not Admin, then only return project which current user created 
-		return List.find({ toUser: currentUserId});
-	}
-
-
-
+	// If current user is normal user, return bot created by him and assign to him
+	return List.find({$or: [
+		{createdBy: currentUserId},
+		{toUser: currentUserId}
+	]});
 
 });
 
@@ -84,11 +77,11 @@ Meteor.methods({
 		List.remove(selectedId);		
 	},
 
-	'changeReturnList':function(Icreated){
-		if(Icreated){
-			IcreatedFilter = true;
-		}else if (Icreated === false){
-			IcreatedFilter = false;
+	'isAdmin': function(id){
+		if(id === adminId){
+			return true;
+		} else{
+			return false;
 		}
 	}
 

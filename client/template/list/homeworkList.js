@@ -34,14 +34,11 @@ Template.list.events({
     },
 
     'click #createdByUser':function(){
-        var Icreated = true;
-        console.log('lalalalal');
-        Meteor.call('changeReturnList', Icreated);
+        Session.set('filterByCreated', true);
     },
 
     'click #backAllProject':function(){
-        var Icreated = false;
-        Meteor.call('changeReturnList', Icreated);
+        Session.set('filterByCreated', false);
     }
 
 });
@@ -49,14 +46,29 @@ Template.list.events({
 Template.list.helpers({
 
     list: function() {
-        return List.find();
+        var currentUserId = Meteor.userId();
+        var isAdmin;
+
+        // checking if current user is admin
+        Meteor.call('isAdmin', currentUserId, function(error, result){
+            Session.set('isAdmin',result);
+        });
+        isAdmin = Session.get('isAdmin');
+
+        // if user selected I created button, return project created by current user
+        if (Session.get('filterByCreated')) {
+            return List.find({createdBy: Meteor.userId()});
+        } else {
+            // if user is admin, return all project
+            if(isAdmin){
+                return List.find();
+            } else{
+                // if user is not admin nor selected I created button, return project which assign to him
+            return List.find({toUser: Meteor.userId()}) };
+        }
     },
     users: function() {
         return Meteor.users.find().fetch();
-    },
-    IcreatedList: function(){
-        var currentUserId = Meteor.userId();
-        return List.find({createdBy: currentUserId})
     }
 });
 

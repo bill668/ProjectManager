@@ -47,3 +47,42 @@ ul li{
 	overflow: auto;
 	zoom: 1;
 }
+
+#login-buttons {
+    position: absolute;
+    margin-left: 50px;
+    top: 30px;
+    color: #707070;
+    height: 30px;
+    width:170px;
+}
+
+#login-buttons a {
+    text-decoration: none;
+}
+
+a  {
+    color: black;
+    
+}
+
+.container {
+    width:600px;
+}
+
+a.additional-link-container {
+    font-size: 12pt;
+}
+
+.btn,
+.btn:focus {
+  border-radius: 0px !important;
+  background-color: #4cc8ee;
+  border: none;
+  color: #222;
+}
+
+#login-buttons .login-button,
+.accounts-dialog .login-button {
+        background-color: #4cc8ee
+    }

@@ -6,12 +6,14 @@ DESCRIPTION: The initial template for HomeworkHelper. All templates are loaded t
 <template name="layout">
     <!-- NAVIGATION -->
     <nav class="navbar navbar-default">
+        {{> loginButtons }}
         <div class="container">
+
             <div class="navbar-header">
                 <a class="navbar-brand mainButton" id="home-link">
                   <!-- Ming 4/20/15: remove layout.js, use iron-routers instead  a button for click events -->
                     {{#linkTo route='list' class='navbar-brand'}}
-                        Homework Helper
+                        Project Manager
                     {{/linkTo}}
                 </a>
             </div>
